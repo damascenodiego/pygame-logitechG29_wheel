@@ -7,7 +7,7 @@
 
 
 import pygame
-import xbox360_controller
+import logitechG29_wheel
 import socket
 
 pygame.init()
@@ -27,7 +27,7 @@ FPS = 10
 clock = pygame.time.Clock()
 
 # make a controller
-controller = xbox360_controller.Controller(0)
+controller = logitechG29_wheel.Controller(0)
 
 # make a ball
 ball_pos = [290, 290]
