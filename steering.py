@@ -57,7 +57,7 @@ while not done:
 
     throtPos = controller.get_throttle()
     breakPos = controller.get_break()
-    gearPos  = controller.get_gear()
+    clutchPos  = controller.get_clutch()
 
     msgX = bytes([126 + int(steerPos* 126)])
     msgY = bytes([126 + int(throtPos* 126)])
@@ -65,7 +65,7 @@ while not done:
     sock.sendto(msgX + msgY + msgZ,("127.0.0.1", 5005))
 
     ball1_radius = int((steerPos + 1) * 20)
-    ball2_radius = int((gearPos  + 1) * 20)
+    ball2_radius = int((clutchPos  + 1) * 20)
     ball3_radius = int((breakPos + 1) * 20)
     ball4_radius = int((throtPos + 1) * 20)
 

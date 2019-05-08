@@ -31,11 +31,12 @@ class Controller:
 
         self._joystick = pygame.joystick.Joystick(id)
         self._joystick.init()
+        self.dead_zone = dead_zone
 
         self._parser = ConfigParser()
         self._parser.read('wheel_config.ini')
         self._steer_idx     = int(self._parser.get('G29 Racing Wheel', 'steering_wheel'))
-        self._gear_idx  = int(self._parser.get('G29 Racing Wheel', 'gear'))
+        self._clutch_idx  = int(self._parser.get('G29 Racing Wheel', 'gear'))
         self._throttle_idx = int(self._parser.get('G29 Racing Wheel', 'throttle'))
         self._brake_idx     = int(self._parser.get('G29 Racing Wheel', 'brake'))
         self._reverse_idx   = int(self._parser.get('G29 Racing Wheel', 'reverse'))
@@ -100,7 +101,7 @@ class Controller:
         return (self.get_axis()[self._steer_idx])
 
 
-    def get_gear(self):
+    def get_clutch(self):
         """
         Gets the state of the gear pedal.
 
@@ -112,7 +113,7 @@ class Controller:
         """
 
 
-        return (self.get_axis()[self._gear_idx])
+        return (self.get_axis()[self._clutch_idx])
 
 
     def get_break(self):
