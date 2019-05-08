@@ -7,7 +7,7 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
 sock.bind(("127.0.0.1", 5005))
 
 while True:
-  data, addr = sock.recvfrom(2)
+  data, addr = sock.recvfrom(3)
   
   print("received:", data)
   sys.stdout.flush() 
